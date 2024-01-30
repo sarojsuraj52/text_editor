@@ -1,0 +1,30 @@
+/* Styles for the text editor */
+.editor {
+  border: 1px solid #ccc;
+  border-radius: 0 0 10px 10px;
+  padding: 10px;
+  margin-bottom: 20px;
+  line-height: 2;
+  height: 400px;
+  overflow-y: auto;
+  transition: border-color 0.3s ease-in-out;
+}
+
+/* Styles for the focused state of the text editor */
+.editor:focus {
+  border-color: #80bdff;
+  border-width: 2px;
+  outline: 0;
+}
+
+/* Styles for buttons */
+.btn {
+  font-weight: 500;
+  border-radius: 0;
+}
+
+/* Styles for container heading */
+.container h1 {
+  text-align: center;
+  margin: 20px 0;
+}
