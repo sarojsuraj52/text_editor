@@ -20,3 +20,22 @@ function addLink() {
     // Execute the command to create a link with the provided URL
     document.execCommand("createLink", false, url);
 }
+
+// Function to select font color
+function selectFontColor() {
+    var color = prompt("Enter a color name or hex code (e.g., #FF0000):");
+    if (color != null) {
+        document.execCommand("foreColor", false, color);
+    }
+}
+
+
+// Function to select font color
+function selectFontColor(color) {
+    document.execCommand("foreColor", false, color);
+}
+
+// Function to select background color
+function selectBgColor(color) {
+    document.execCommand("backColor", false, color);
+}
