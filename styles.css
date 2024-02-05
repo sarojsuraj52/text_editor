@@ -36,3 +36,14 @@
   margin-right: 5px;
   border: 1px solid #ccc;
 }
+
+#toast{
+  background: #0dbb0d;
+  text-align: center;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+}

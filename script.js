@@ -21,13 +21,6 @@ function addLink() {
     document.execCommand("createLink", false, url);
 }
 
-// Function to select font color
-function selectFontColor() {
-    var color = prompt("Enter a color name or hex code (e.g., #FF0000):");
-    if (color != null) {
-        document.execCommand("foreColor", false, color);
-    }
-}
 
 
 // Function to select font color
@@ -39,3 +32,36 @@ function selectFontColor(color) {
 function selectBgColor(color) {
     document.execCommand("backColor", false, color);
 }
+
+
+$(document).ready(function() {
+    // Fetch saved text content on page load
+    $.ajax({
+        url: "fetch_text.php",
+        success: function(response) {
+            document.getElementById('editor').innerHTML = response;
+        }
+    });
+
+    // Autosave function
+    setInterval(function() {
+        var textContent = document.getElementById('editor').innerHTML;
+        $.ajax({
+            type: "POST",
+            url: "save_text.php",
+            data: {text_content: textContent},
+            success: function(response) {
+                showToast("Text saved successfully", 2000);
+            }
+        });
+    }, 20000); // Autosave every 20 seconds
+
+    // Function to show toast message
+    function showToast(message, duration) {
+        var toast = document.getElementById("toast");
+        toast.innerHTML = message;
+        toast.className = "show";
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, duration);
+    }
+});
+
